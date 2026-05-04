@@ -1,7 +1,6 @@
-.container {
-  flex-direction: flex;
+.container{
+    display : flex;
 }
-
 
 img {
   max-width: 100%;
