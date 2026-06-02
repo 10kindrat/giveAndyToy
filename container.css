@@ -19,6 +19,8 @@ button {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+
+  touch-action: manipulation; /* 터치 장치에서 클릭 지연 방지 */
 }
 
 h3 {
