@@ -5,6 +5,14 @@ let toyCost = 50;
 let autoMoneyPerSec = 0;
 let level = 0;
 
+// Load saved values from localStorage
+money = parseInt(localStorage.getItem("money")) || 0;
+moneyPerClick = parseInt(localStorage.getItem("moneyPerClick")) || 1;
+upgradeCost = parseInt(localStorage.getItem("upgradeCost")) || 10;
+toyCost = parseInt(localStorage.getItem("toyCost")) || 50;
+autoMoneyPerSec = parseInt(localStorage.getItem("autoMoneyPerSec")) || 0;
+level = parseInt(localStorage.getItem("level")) || 0;
+
 setInterval(() => {
     money += autoMoneyPerSec;
     updateUI();
@@ -31,8 +39,9 @@ function updateUI(){
     autoMoneyText.innerText = autoMoneyPerSec;
     toyCostText.innerText = toyCost;
     toyNumText.innerText = level;
-    upgradeBtn.disabled = money < upgradeCost;
-    buyToyBtn.disabled = money < toyCost;
+    upgradeBtn.style.backgroundColor = money < upgradeCost ? "gray" : "#4CAF50";
+    buyToyBtn.style.backgroundColor = money < toyCost ? "gray" : "#4CAF50";
+    updateImg();
 }
 
 function updateImg(){
@@ -75,6 +84,55 @@ buyToyBtn.addEventListener("click",()=>{
     updateUI();
 })
 
+function resetGame(){
+    money = 0;
+    moneyPerClick = 1;
+    upgradeCost = 10;
+    toyCost = 50;
+    autoMoneyPerSec = 0;
+    level = 0;
 
+    localStorage.setItem("money", money);
+    localStorage.setItem("moneyPerClick", moneyPerClick);
+    localStorage.setItem("upgradeCost", upgradeCost);
+    localStorage.setItem("toyCost", toyCost);
+    localStorage.setItem("autoMoneyPerSec", autoMoneyPerSec);
+    localStorage.setItem("level", level);
+
+    updateUI();
+}
+
+const resetBtn = document.getElementById("resetBtn");
+resetBtn.addEventListener("click", ()=>{
+    if(confirm("게임을 초기화하시겠습니까?")){
+        resetGame();
+    }
+});
+
+const saveBtn = document.getElementById("saveBtn");
+saveBtn.addEventListener("click", saveGame);
+
+
+const message = document.getElementById("message");
+function saveGame(){
+    localStorage.setItem("money", money);
+    localStorage.setItem("moneyPerClick", moneyPerClick);
+    localStorage.setItem("upgradeCost", upgradeCost);
+    localStorage.setItem("toyCost", toyCost);
+    localStorage.setItem("autoMoneyPerSec", autoMoneyPerSec);
+    localStorage.setItem("level", level);
+
+    message.innerText = "게임이 저장되었습니다.";
+    message.style.color = "green";
+}
+
+
+
+setInterval(() => {
+    if(localStorage.getItem("money") != money){
+        message.innerText = "게임이 저장되지않았습니다. 저장 버튼을 눌러주세요.";
+        message.style.color = "red";
+    }
+}, 1000);
 
 updateUI();

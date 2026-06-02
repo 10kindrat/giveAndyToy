@@ -3,6 +3,33 @@
 }
 
 img {
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
+  margin-left: 5px;
+}
+
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.left {
+  outline: 2px solid black;
+  width: 50%;
+}
+.right {
+  outline: 2px solid black;
+  width: 50%;
 }
