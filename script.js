@@ -39,13 +39,14 @@ document.addEventListener("touchmove", function(event){
         event.preventDefault();
     }
 }, {passive :false});
-document.addEventListener("touchend", function(event){
+
+/*document.addEventListener("touchend", function(event){
     const now = (new Date()).getTime();
     if(now - lastTouchEnd <= 300){
         event.preventDefault();
     }
     lastTouchEnd = now;
-}, {passive :false});
+}, {passive :false}); */
 
 document.addEventListener("mousedown", function(event){
     if(event.ctrlKey){
