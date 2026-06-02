@@ -1,41 +1,89 @@
-.container{
-    display : flex;
+html, body {
+    touch-action: manipulation;
 }
 
-img {
-  max-width: 70%;
-  height: auto;
-  margin-left: 5px;
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 20px;
 }
 
-button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-
-  touch-action: manipulation; /* 터치 장치에서 클릭 지연 방지 */
+.container {
+    display: flex;
+    gap: 15px;
 }
 
-h3 {
-  font-size: 20px;
+.left,
+.right {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .left {
-  outline: 2px solid black;
-  width: 50%;
-}
-.right {
-  outline: 2px solid black;
-  width: 50%;
+    width: 50%;
 }
 
-input, textarea{
-  font-size: 16px;
+.right {
+    width: 50%;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+h3 {
+    font-size: 18px;
+    color: #444;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+#currentMoneyText {
+    color: #e6a700;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+button {
+    background: #4CAF50;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 12px 18px;
+    margin: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 14px;
+    margin-top: 10px;
+}
+
+#andySay {
+    margin-top: 15px;
+    color: #666;
+    font-style: italic;
+}
+
+#message {
+    font-weight: bold;
+    margin-top: 10px;
 }
