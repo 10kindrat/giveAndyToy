@@ -32,7 +32,29 @@ const buyToyBtn = document.getElementById("buyToyBtn");
 const andyImg = document.getElementById("andy");
 const andySay = document.getElementById("andySay");
 
-function updateUI(){
+// 줌 방지
+let lastTouchEnd = 0;
+document.addEventListener("touchmove", function(event){
+    if(event.touches.length > 1) {
+        event.preventDefault();
+    }
+}, {passive :false});
+document.addEventListener("touchend", function(event){
+    const now = (new Date()).getTime();
+    if(now - lastTouchEnd <= 300){
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
+
+document.addEventListener("mousedown", function(event){
+    if(event.ctrlKey){
+        event.preventDefault();
+    }
+}, {passive :false});    
+
+
+function updateUI(){ // UI 업데이트 함수 - 돈, 클릭당 돈, 업그레이드 비용, 자동으로 버는 돈, 장난감 비용, 장난감 개수 업데이트
     currentMoneyText.innerText = money;
     clickMoneyText.innerText = moneyPerClick;
     upgradeCostText.innerText = upgradeCost;

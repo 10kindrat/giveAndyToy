@@ -33,3 +33,7 @@ h3 {
   outline: 2px solid black;
   width: 50%;
 }
+
+input, textarea{
+  font-size: 16px;
+}
