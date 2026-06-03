@@ -3,36 +3,45 @@
 <head>
     <title>앤디 장난감 사주기</title>
     <link rel = "stylesheet" href ="container.css">
+    <link rel = "stylesheet" href ="/css/shopStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
 </head>
 
 <body>
-    <div class ="container">
-        <div class ="left">
-            <h3>현재돈 : <span id ="currentMoneyText">0</span></h3>
-            <h3>클릭당 돈 : <span id ="clickMoneyText">0</span></h3>
-            <h3>초당 자동수익 : <span id ="autoMoneyText">0</span></h3>
-            <h3>업그레이드 비용 : <span id ="upgradeCostText">0</span></h3>
-            <h3>장난감 비용 : <span id ="toyCostText">0</span></h3>
-            
-            <button id="earnMoneyBtn">돈 벌기</button>
-            <button id="upgradeBtn">업그레이드</button>
-            <button id="buyToyBtn">장난감 구매</button>
-            <button id="resetBtn">초기화</button>
-            <button id="saveBtn">저장</button>
+    <div id="mainTab", class="tab">
+        <div class ="container">
+            <div class ="left">
+                <h3>현재돈 : <span id ="currentMoneyText">0</span></h3>
+                <h3>클릭당 돈 : <span id ="clickMoneyText">0</span></h3>
+                <h3>초당 자동수익 : <span id ="autoMoneyText">0</span></h3>
+                <h3>업그레이드 비용 : <span id ="upgradeCostText">0</span></h3>
+                <h3>장난감 비용 : <span id ="toyCostText">0</span></h3>
+                
+                <button id="earnMoneyBtn">돈 벌기</button>
+                <button onclick="changeTab('shopTab')" id="shopBtn">상점</button>
+                <button id="upgradeBtn">업그레이드</button>
+                <button id="buyToyBtn">장난감 구매</button>
+                <button id="resetBtn">초기화</button>
+            </div>
 
-            <p id="message"></p>
+            <div class ="right">
+                <h2 id = "andyHouseName">앤디의 집</h2>
+                <img id="andy" src="img/andy.png">
+                <h3 id="andySay"></h3>
+            </div>
         </div>
-
-        <div class ="right">
-            <h2>장난감의 갯수 : <span id ="numToy">0</span></h2>
-            <img id="andy" src="img/andy.png">
-            <h3 id="andySay"></h3>
+    </div>
+    <div id="shopTab", class="tab" style="display:none;">
+        <div class ="shopContainer">
+            <h2>상점</h2>
+            <button onclick="changeTab('mainTab')">메인으로</button>
+            <p>상점은 아직 준비중입니다.</p>
         </div>
     </div>
 
     <script src = "script.js"></script>
     <script src = "js/andy.js"></script>
+    <script src = "js/shop.js"></script>
 </body>
 </html>

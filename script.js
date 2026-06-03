@@ -23,7 +23,7 @@ const clickMoneyText = document.getElementById("clickMoneyText");
 const autoMoneyText = document.getElementById("autoMoneyText");
 const upgradeCostText = document.getElementById("upgradeCostText");
 const toyCostText = document.getElementById("toyCostText");
-const toyNumText = document.getElementById("numToy");
+// const toyNumText = document.getElementById("numToy");
 
 const earnMoneyBtn = document.getElementById("earnMoneyBtn");
 const upgradeBtn = document.getElementById("upgradeBtn");
@@ -53,7 +53,6 @@ function updateUI(){ // UI 업데이트 함수 - 돈, 클릭당 돈, 업그레�
     upgradeCostText.innerText = upgradeCost;
     autoMoneyText.innerText = autoMoneyPerSec;
     toyCostText.innerText = toyCost;
-    toyNumText.innerText = level;
     upgradeBtn.style.backgroundColor = money < upgradeCost ? "gray" : "#4CAF50";
     buyToyBtn.style.backgroundColor = money < toyCost ? "gray" : "#4CAF50";
 
@@ -111,10 +110,8 @@ resetBtn.addEventListener("click", ()=>{
 });
 
 const saveBtn = document.getElementById("saveBtn");
-saveBtn.addEventListener("click", saveGame);
 
 
-const message = document.getElementById("message");
 function saveGame(){
     localStorage.setItem("money", money);
     localStorage.setItem("moneyPerClick", moneyPerClick);
@@ -122,18 +119,21 @@ function saveGame(){
     localStorage.setItem("toyCost", toyCost);
     localStorage.setItem("autoMoneyPerSec", autoMoneyPerSec);
     localStorage.setItem("level", level);
-
-    message.innerText = "게임이 저장되었습니다.";
-    message.style.color = "green";
 }
 
 
 
 setInterval(() => {
-    if(localStorage.getItem("money") != money){
-        message.innerText = "게임이 저장되지않았습니다. 저장 버튼을 눌러주세요.";
-        message.style.color = "red";
-    }
+    saveGame();
 }, 1000);
 
 updateUI();
+
+//tab 기능
+function changeTab(tabName){
+    document.querySelectorAll(".tab").forEach(tab => {
+        tab.style.display = "none";
+    });
+
+    document.getElementById(tabName).style.display = "block";
+}

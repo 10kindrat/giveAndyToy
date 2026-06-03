@@ -11,6 +11,7 @@ body {
 .container {
     display: flex;
     gap: 15px;
+    align-items: flex-start;
 }
 
 .left,
@@ -27,9 +28,13 @@ body {
 }
 
 .right {
-    width: 50%;
+    width: 25%;
     text-align: center;
     position: relative;
+    aspect-ratio: 1 / 1;  /* 가로 = 세로 */
+    background-image: url('img/andyRoom.png');
+    background-size: cover;
+    background-position: center;
 }
 
 h2 {
@@ -91,10 +96,20 @@ img {
 }
 
 #andy{
-    width: 100px;
+    width: 29%;
     height: auto;
 
     position: absolute;
     top: 70%;
     left: 0%;
+}
+
+#andyHouseName {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #333;
+    font-size: 100%;
+    font-weight: bold;
 }
