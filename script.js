@@ -29,7 +29,6 @@ const earnMoneyBtn = document.getElementById("earnMoneyBtn");
 const upgradeBtn = document.getElementById("upgradeBtn");
 const buyToyBtn = document.getElementById("buyToyBtn");
 
-const andyImg = document.getElementById("andy");
 const andySay = document.getElementById("andySay");
 
 // 줌 방지
@@ -40,13 +39,6 @@ document.addEventListener("touchmove", function(event){
     }
 }, {passive :false});
 
-/*document.addEventListener("touchend", function(event){
-    const now = (new Date()).getTime();
-    if(now - lastTouchEnd <= 300){
-        event.preventDefault();
-    }
-    lastTouchEnd = now;
-}, {passive :false}); */
 
 document.addEventListener("mousedown", function(event){
     if(event.ctrlKey){
@@ -64,25 +56,9 @@ function updateUI(){ // UI 업데이트 함수 - 돈, 클릭당 돈, 업그레�
     toyNumText.innerText = level;
     upgradeBtn.style.backgroundColor = money < upgradeCost ? "gray" : "#4CAF50";
     buyToyBtn.style.backgroundColor = money < toyCost ? "gray" : "#4CAF50";
-    updateImg();
+
 }
 
-function updateImg(){
-    
-    if(level >= 10){
-        andyImg.src = "img/andyLv10.jpg";
-        andySay.innerText = "앤디는 너무 즐거워 휴식을 취하고싶다...";
-    }
-    else if(level >= 5){
-        andyImg.src = "img/andyLv5.jpg";
-        andySay.innerText = "엔디는 리본을 가지고 놀고있다...";
-    }
-    else if(level >= 1){
-        andyImg.src = "img/andyLv1.jpg";
-        andySay.innerText = "앤디가 관심을 가진다...";
-    }
-    
-}
 
 earnMoneyBtn.addEventListener("click",()=>{
     money += moneyPerClick;

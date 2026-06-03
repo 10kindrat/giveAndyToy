@@ -29,6 +29,7 @@ body {
 .right {
     width: 50%;
     text-align: center;
+    position: relative;
 }
 
 h2 {
@@ -75,6 +76,7 @@ img {
     max-width: 320px;
     border-radius: 14px;
     margin-top: 10px;
+    image-rendering: pixelated;
 }
 
 #andySay {
@@ -86,4 +88,13 @@ img {
 #message {
     font-weight: bold;
     margin-top: 10px;
+}
+
+#andy{
+    width: 100px;
+    height: auto;
+
+    position: absolute;
+    top: 70%;
+    left: 0%;
 }
